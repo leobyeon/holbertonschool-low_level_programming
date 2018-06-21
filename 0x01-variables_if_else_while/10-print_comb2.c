@@ -11,21 +11,21 @@ int main(void)
 
 	for (n = '0'; n <= '9'; n++)
 	{
-			for (m = '0'; m <= '9'; m++)
-			{
-				putchar(n);
-				putchar(m);
+		for (m = '0'; m <= '9'; m++)
+		{
+			putchar(n);
+			putchar(m);
 
-				if (n == '9' && m == '9')
-				{
+			if (n == '9' && m == '9')
+			{
 				continue;
-				}
-				else
-				{
-					putchar(',');
-					putchar(' ');
-				}
 			}
+			else
+			{
+				putchar(',');
+				putchar(' ');
+			}
+		}
 	}
 
 	putchar('\n');
