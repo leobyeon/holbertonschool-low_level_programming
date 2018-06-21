@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -S -mllvm --x86-asm-syntax=intel $CFILE
+gcc -S -masm=intel $CFILE
