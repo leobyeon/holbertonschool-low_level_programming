@@ -10,22 +10,22 @@ int main(void)
 	int n, m;
 
 	for (n = '0'; n <= '9'; n++)
+	{
+		for (m = n + 1; m <= '9'; m++)
 		{
-			for (m = '0'; m <= '9'; m++)
+			putchar(n);
+			putchar(m);
+			if (n == '8' && m == '9')
 			{
-				putchar(n);
-				putchar(m);
-				if (n == '9' && m == '9')
-				{
-					continue;
-				}
-				else
-				{
-					putchar(',');
-					putchar(' ');
-				}
+				continue;
+			}
+			else
+			{
+				putchar(',');
+				putchar(' ');
 			}
 		}
+	}
 
 	putchar('\n');
 
