@@ -8,48 +8,26 @@
  */
 void jack_bauer(void)
 {
-	int i, j;
+	int hour, min, hour1, hour2, min1, min2;
 
-	for (i = 0; i <= 23; i++)
+	hour = 0;
+	while (hour < 24)
 	{
-		for (j = 0; j <= 59; j++)
+		hour1 = hour / 10;
+		hour2 = hour % 10;
+		min = 0;
+		while (min < 60)
 		{
-			if (i < 10 && j < 10)
-			{
-				_putchar('0');
-				_putchar(i + '0');
-				_putchar(':');
-				_putchar('0');
-				_putchar(j + '0');
-				_putchar('\n');
-				}
-			else if (i < 10 && j >= 10)
-			{
-				_putchar('0');
-				_putchar(i + '0');
-				_putchar(':');
-				_putchar((j / 10) + '0');
-				_putchar((j % 10) + '0');
-				_putchar('\n');
-			}
-			else if (i >= 10 && j < 10)
-			{
-				_putchar((i / 10) + '0');
-				_putchar((i % 10) + '0');
-				_putchar(':');
-				_putchar('0');
-				_putchar(j + '0');
-				_putchar('\n');
-			}
-			else
-			{
-				_putchar((i / 10) + '0');
-				_putchar((i % 10) + '0');
-				_putchar(':');
-				_putchar((j / 10) + '0');
-				_putchar((j % 10) + '0');
-				_putchar('\n');
-			}
+			min1 = min / 10;
+			min2 = min % 10;
+			_putchar(hour1 + '0');
+			_putchar(hour2 + '0');
+			_putchar(':');
+			_putchar(min1 + '0');
+			_putchar(min2 + '0');
+			_putchar('\n');
+			min++;
 		}
+		hour++;
 	}
 }
