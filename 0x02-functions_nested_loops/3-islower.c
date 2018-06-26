@@ -3,6 +3,10 @@
 /**
  * _islower - checks for lowercase letter
  *
+ * Description: Similar to the standard library function 'islower'
+ * Run 'man islower' to learn more
+ * @c: operand
+ *
  * Return: 1 if c is lowercase
  * 0 otherwise
  */
