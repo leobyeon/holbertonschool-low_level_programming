@@ -1,8 +1,10 @@
 #include "holberton.h"
 
 /**
- * _isalpha - checks whether c is a letter (case-insensitive)
+ * _isalpha - checks whether c is a letter
  *
+ * Description: case-insensitive
+ * @c: operand
  * Return: 1 if true,
  * 0 if false
  */
