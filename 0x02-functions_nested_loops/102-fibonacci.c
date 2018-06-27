@@ -11,7 +11,7 @@ int main(void)
 
 	prev = 1;
 	curr = 1;
-	printf("%li, \n", curr);
+	printf("%li, ", curr);
 
 	for (i = 2; i <= 50; i++)
 	{
@@ -20,7 +20,7 @@ int main(void)
 		prev = curr;
 		curr = next;
 		if (i != 50)
-			printf(", \n");
+			printf(", ");
 		else
 			printf("\n");
 	}
