@@ -8,8 +8,8 @@
  */
 int main(void)
 {
-	int i, sum;
-	long int prev = 1, curr = 2, next;
+	int sum;
+	int prev = 1, curr = 2, next;
 
 	sum = 0;
 
