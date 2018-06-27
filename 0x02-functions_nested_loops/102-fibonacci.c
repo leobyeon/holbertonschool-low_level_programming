@@ -11,14 +11,18 @@ int main(void)
 
 	prev = 1;
 	curr = 1;
-	printf("%li\n", curr);
+	printf("%li, \n", curr);
 
 	for (i = 2; i <= 50; i++)
 	{
 		next = prev + curr;
-		printf("%li\n", next);
+		printf("%li", next);
 		prev = curr;
 		curr = next;
+		if (i != 50)
+			printf(", \n");
+		else
+			printf("\n");
 	}
 	return (0);
 }
