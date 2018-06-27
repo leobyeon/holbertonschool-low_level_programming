@@ -11,7 +11,7 @@ int main(void)
 	int sum;
 	int prev = 1, curr = 2, next;
 
-	sum = 0;
+	sum = 2;
 
 	while (sum < 4000000)
 	{
