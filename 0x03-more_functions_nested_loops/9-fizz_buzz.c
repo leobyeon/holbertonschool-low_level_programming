@@ -30,7 +30,15 @@ int main(void)
 		{
 			printf("%i", i);
 		}
-		printf(" ");
+
+		if (i == 100)
+		{
+			continue;
+		}
+		else
+		{
+			printf(" ");
+		}
 	}
 	printf("\n");
 	return (0);
