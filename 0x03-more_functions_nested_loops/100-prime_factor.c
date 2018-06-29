@@ -3,51 +3,30 @@
 #include <math.h>
 
 /**
- * is_prime - checks if a given number is prime
- * @n: operand
- *
- * Return: true if prime, false if not
- */
-int is_prime(int n)
-{
-	int i;
-
-	for (i = 2; i < n; i++)
-	{
-		if (n % i == 0)
-		{
-			return (false);
-		}
-		else
-		{
-			continue;
-		}
-	}
-	return (true);
-}
-
-/**
  * main - prints the largest prime factor for 612852475143
  *
  * Return: 0 if everything works
  */
 int main(void)
 {
-	int i = 2;
-	long int n, largest_pf, sq_root;
+	unsigned long curr;
+	unsigned long max;
 
-	n = 612852475143;
+	max = 612852475143;
+	curr = 2;
 
-	sq_root = (int)(sqrt(n));
-
-	while (i < sq_root)
+	while (max > curr)
 	{
-		if (n % i == 0 && is_prime(n / i))
+		if (max % curr == 0)
 		{
-			largest_pf = i;
+			max = max / curr;
+			curr = 2;
 		}
-		i++;
+		else
+		{
+			curr++;
+		}
 	}
-	printf("%li\n", largest_pf);
+	printf("%lu\n", curr);
 	return (0);
 }
