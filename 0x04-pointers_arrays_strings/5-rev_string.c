@@ -27,15 +27,13 @@ int _strlen(char *s)
   */
 void rev_string(char *s)
 {
-	if (s != 0 && *s != '\0')
-	{
-		char *end = s + _strlen(s) - 1;
+	char *end = s + _strlen(s) - 1;
+	char tmp;
 
-		while (s < end)
-		{
-			char tmp = *s;
-			*s++ = *end;
-			*end-- = tmp;
-		}
+	while (s < end)
+	{
+		tmp = *s;
+		*s++ = *end;
+		*end-- = tmp;
 	}
 }
