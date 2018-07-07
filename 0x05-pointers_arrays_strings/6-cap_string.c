@@ -10,7 +10,8 @@
 int contains(char c)
 {
 	int i;
-	char special[13] = {'\t', ' ', ',', ';', '.', '!', '?', '(', ')', '{', '}', '"', '\n'};
+	char special[13] = {'\t', ' ', ',', ';', '.', '!', '?',
+	'(', ')', '{', '}', '"', '\n'};
 
 	for (i = 0; i < 14; i++)
 	{
@@ -51,7 +52,6 @@ char *cap_string(char *str)
 	int i, j;
 	int str_len = _strlen(str);
 
-	
 	for (i = 0, j = i + 1; i < str_len; i++, j++)
 	{
 		if (contains(str[i]) && !contains(str[j]))
