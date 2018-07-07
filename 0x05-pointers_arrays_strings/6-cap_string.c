@@ -4,8 +4,8 @@
   * contains - checks if c is a special character
   * @c: operand
   *
-  * Return: 1 if found,
-  * 2 if not found
+  * Return: 1 if true,
+  * 0 if false
   */
 int contains(char c)
 {
@@ -13,7 +13,7 @@ int contains(char c)
 	char special[13] = {'\t', ' ', ',', ';', '.', '!', '?',
 	'(', ')', '{', '}', '"', '\n'};
 
-	for (i = 0; i < 14; i++)
+	for (i = 0; i < 13; i++)
 	{
 		if (c == special[i])
 			return (1);
