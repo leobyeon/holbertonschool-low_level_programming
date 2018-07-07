@@ -23,25 +23,6 @@ int contains(char c)
 }
 
 /**
-  * _strlen - returns the length of a string
-  * @s: operand
-  *
-  * Return: length of the string
-  */
-int _strlen(char *s)
-{
-	int len, i;
-
-	len = 0;
-
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		len++;
-	}
-	return (len);
-}
-
-/**
   * cap_string - capitalizes all words of a string
   * @str: the string to check
   *
@@ -50,9 +31,8 @@ int _strlen(char *s)
 char *cap_string(char *str)
 {
 	int i, j;
-	int str_len = _strlen(str);
 
-	for (i = 0, j = i + 1; i < str_len; i++, j++)
+	for (i = 0, j = i + 1; str[i] != '\0'; i++, j++)
 	{
 		if (contains(str[i]) && !contains(str[j]))
 		{
