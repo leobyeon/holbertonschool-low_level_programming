@@ -16,7 +16,7 @@ char *leet(char *s)
 	int i, j;
 	int num_arr[5] = {'4', '3', '0', '7', '1'};
 	char letter_arr[5] = {'a', 'e', 'o', 't', 'l'};
-	
+
 	for (i = 0; s[i] != '\0'; i++)
 	{
 		for (j = 0; j < 5; j++)
