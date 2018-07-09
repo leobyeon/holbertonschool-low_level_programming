@@ -8,14 +8,19 @@
   */
 char *rot13(char *str)
 {
-	int i;
+	int i, j;
+	char lttrs[] =   "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ";
+	char mvlttrs[] = "nNoOpPqQrRsStTuUvVwWxXyYzZaAbBcCdDeEfFgGhHiIjJkKlLmM";
 
-	for (i = 0; str && str[i]; i++)
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		if ((str[i] >= 'a' && (str[i] + 13) <= 'z') || ((str[i] >= 'A'
-		&& (str[i] + 13) <= 'Z')))
+		for (j = 0; j < 52; j++)
 		{
-			str[i] += 13;
+			if (str[i] == lttrs[j])
+			{
+				str[i] = mvlttrs[j];
+				break;
+			}
 		}
 	}
 	return (str);
