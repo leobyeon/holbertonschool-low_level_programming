@@ -13,19 +13,18 @@
 char *_strchr(char *s, char c)
 {
 	char *p = s;
+	int i;
+
+	for (i = 0; p[i] != '\0'; i++)
+	{
+		if (p[i] == c)
+		{
+			return (p + i);
+		}
+	}
 
 	if (c == '\0')
 		return (p);
-
-	while (p != '\0')
-	{
-		if (*p == c)
-		{
-			return (p);
-		}
-
-		p++;
-	}
 
 	return (NULL);
 }
