@@ -1,5 +1,13 @@
 #include "holberton.h"
 
+/**
+  * sq - increments and squares i
+  * @i: base num
+  * @n: number to be square rooted
+  *
+  * Return: i if a natural square root of n is found,
+  * -1 if not found
+  */
 int sq(int n, int i)
 {
 	if (n == i * i)
@@ -12,7 +20,7 @@ int sq(int n, int i)
 	}
 	else
 	{
-		return sq(n, i + 1);
+		return (sq(n, i + 1));
 	}
 }
 
