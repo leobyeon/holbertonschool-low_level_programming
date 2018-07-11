@@ -24,7 +24,11 @@ char *_strstr(char *haystack, char *needle)
 			{
 				if (p[k] != q[j])
 					break;
-					return (p + i);
+
+				if (!q[j])
+					return (NULL);
+
+				return (p + i);
 			}
 		}
 	}
