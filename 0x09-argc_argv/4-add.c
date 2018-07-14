@@ -19,22 +19,22 @@ int main(int argc, char *argv[])
 {
 	if (!argc)
 		printf("0\n");
-	
+
 	int i;
 	int j;
 	int sum = 0;
 
-	for (i = 1; argv[i]; i++)
+	for (i = 1; i < argc; i++)
 	{
 		for (j = 0; argv[i][j]; j++)
 		{
-			if (argv[i]) /* need to check for multiple level digits??? */
+			if (!isdigit(argv[i][j]))
 			{
 				printf("Error\n");
 				return (1);
 			}
-			else
-				sum += (atoi(argv[i][j]));
+		}
+		sum += atoi(argv[i]);
 	}
 
 	printf("%i\n", sum);
