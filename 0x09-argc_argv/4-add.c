@@ -4,28 +4,20 @@
 #include <ctype.h>
 
 /**
-  * main - adds positive numbers,
-  * followed by a new line
-  * if no number is passed to the program, print 0 followed by a new line
-  * if one of the numbers contains symbols that are not digits,
-  * print Error followed by a new line and return 1
-  * @argc: number of command line args; size of argv arr
-  * @argv: arr containing the program command line args; arr of size argc
+  * main - adds positive numbers
+  * @argc: count of arguments
+  * @argv: array of pointers to the strings that are the arguments
   *
-  * Return: 0 if no number is passed
-  * 1 if one of the numbers contains symbols that are not digits
+  * Return: 0 if everything works,
+  * if no number is passed, print 0 followed by a new line,
+  * if one of the numbers contains non-digits, print Error and return 1
   */
 int main(int argc, char *argv[])
 {
-	if (!argc)
-	{
+	if (argc < 2)
 		printf("0\n");
-		return (1);
-	}
 
-	int i;
-	int j;
-	int sum = 0;
+	int i, j, sum = 0;
 
 	for (i = 1; i < argc; i++)
 	{
@@ -39,8 +31,6 @@ int main(int argc, char *argv[])
 		}
 		sum += atoi(argv[i]);
 	}
-
-	printf("%i\n", sum);
-
+	printf("%d\n", sum);
 	return (0);
 }
