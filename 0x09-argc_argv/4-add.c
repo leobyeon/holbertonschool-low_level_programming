@@ -18,7 +18,10 @@
 int main(int argc, char *argv[])
 {
 	if (!argc)
+	{
 		printf("0\n");
+		return (1);
+	}
 
 	int i;
 	int j;
