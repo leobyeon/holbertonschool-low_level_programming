@@ -38,12 +38,13 @@ char *str_concat(char *s1, char *s2)
 	k = len2 + j;
 	i = 0;
 
-	while (j <= k)
+	while (j < k)
 	{
 		newstr[j] = s2[i];
 		i++;
 		j++;
 	}
 
+	newstr[j] = '\0';
 	return (newstr);
 }
