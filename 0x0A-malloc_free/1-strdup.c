@@ -18,11 +18,10 @@ char *_strdup(char *str)
 	for (i = 0; str[i]; i++)
 		len++;
 
-	copy = malloc((len + 1) * sizeof(char));
+    copy = (char *)malloc((len + 1) * sizeof(char));
 
-	if (copy == NULL || str == 0)
+	if (copy == NULL || str == NULL)
 	{
-		fprintf(stderr, "Not enough memory left!\n");
 		return (NULL);
 	}
 
@@ -35,6 +34,5 @@ char *_strdup(char *str)
 	}
 
 	copy[i] = '\0';
-
 	return (copy);
 }
