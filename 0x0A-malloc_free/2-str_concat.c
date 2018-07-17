@@ -12,16 +12,15 @@
 char *str_concat(char *s1, char *s2)
 {
 	char *newstr;
-	int i, j, strlen = 0;
-
-	if (s1 == NULL)
-		return ("");
+	int i, j, strlen;
 
 	for (i = 0; s1[i]; i++)
-		strlen++;
+		i++;
 
-	for (i = 0; s2[i]; i++)
-		strlen++;
+	for (j = 0; s2[j]; j++)
+		j++;
+
+	strlen = i + j;
 
 	newstr = (char *)malloc((strlen + 1) * (sizeof(char)));
 
