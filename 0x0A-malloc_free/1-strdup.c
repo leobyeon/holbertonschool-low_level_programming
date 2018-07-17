@@ -7,7 +7,7 @@
   * @str: string to duplicate
   *
   * Return: NULL if str == NULL,
-  * a pointer to the duplicate string if success
+  * a pointer to the duplicate string if success,
   * NULL if insufficient memory was available
   */
 char *_strdup(char *str)
@@ -21,7 +21,10 @@ char *_strdup(char *str)
 	copy = malloc((len + 1) * sizeof(char));
 
 	if (copy == NULL || str == 0)
+	{
+		fprintf(stderr, "Not enough memory left!\n");
 		return (NULL);
+	}
 
 	i = 0;
 
