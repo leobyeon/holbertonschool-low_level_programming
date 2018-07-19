@@ -5,6 +5,7 @@
   * string_nconcat - concatenates two strings
   * @s1: string one
   * @s2: string two
+  * @n: integer
   *
   * Return: a pointer to a newly allocated memory of concatenated str;
   * NULL if it fails
@@ -13,6 +14,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	unsigned int i, j, k, l;
 	char *str;
+
 	if (s1 == NULL)
 		s1 = "";
 
