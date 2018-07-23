@@ -3,6 +3,15 @@
 
 int _putchar(char c);
 
+/**
+  * struct dog - contains name, age, and owner of dog
+  * @name: name of dog
+  * @age: age of dog
+  * @owner: owner of dog
+  *
+  * Description: this is a struct of a dog with
+  * name, age, and owner of dog
+  */
 struct dog
 {
 	char *name;
