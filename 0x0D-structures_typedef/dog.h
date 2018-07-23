@@ -12,12 +12,12 @@ int _putchar(char c);
   * Description: this is a struct of a dog with
   * name, age, and owner of dog
   */
-struct dog
+typedef struct dog
 {
 	char *name;
 	float age;
 	char *owner;
-};
+} dog_t;
 
 void init_dog(struct dog *d, char *name, float age, char *owner);
 void print_dog(struct dog *d);
