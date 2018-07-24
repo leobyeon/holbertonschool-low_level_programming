@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 /**
   * _strdup - returns a pointer to a newly allocated space in
   * memory, which contains a copy of the string given as a parameter
@@ -36,8 +35,6 @@ char *_strdup(char *str)
 		i++;
 	}
 
-	copy[i] = '\0';
-
 	return (copy);
 }
 
@@ -53,7 +50,6 @@ char *_strdup(char *str)
   */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-
 	dog_t *hotdog;
 
 	hotdog = malloc(sizeof(hotdog));
@@ -61,18 +57,15 @@ dog_t *new_dog(char *name, float age, char *owner)
 	if (hotdog == NULL)
 		return (NULL);
 
-	if (hotdog)
-	{
-		hotdog->name = _strdup(name);
-		if (hotdog->name == NULL)
-			free(hotdog);
+	hotdog->name = _strdup(name);
+	if (hotdog->name == NULL)
+		free(hotdog);
 
-		hotdog->owner = _strdup(owner);
-		if (hotdog->owner == NULL)
-		{
-			free(hotdog->name);
-			free(hotdog);
-		}
+	hotdog->owner = _strdup(owner);
+	if (hotdog->owner == NULL)
+	{
+		free(hotdog->name);
+		free(hotdog);
 	}
 	hotdog->age = age;
 
