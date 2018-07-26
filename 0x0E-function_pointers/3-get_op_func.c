@@ -4,7 +4,7 @@
 #include <string.h>
 
 /**
-  * get_op_func - returns a pointer to the function that corresponds 
+  * get_op_func - returns a pointer to the function that corresponds
   * to the operator given as a parameter
   *
   * @s: given string
