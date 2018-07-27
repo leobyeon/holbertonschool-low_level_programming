@@ -1,4 +1,4 @@
-# 0x1C. C - Preprocessor
+# 0x0C. C - Preprocessor
 ---
 ## Description
 
