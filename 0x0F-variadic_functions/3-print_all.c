@@ -16,44 +16,47 @@ void print_all(const char * const format, ...)
 	char *str;
 
 	va_start(args, format);
-
-	while (format[i])
+	while (format)
 	{
-		toggle = 0;
-		switch (format[i])
+		while (format[i])
 		{
-			case 'c':
-				printf("%c", (char) va_arg(args, int));
-				toggle = 1;
-				break;
-
-			case 'i':
-				printf("%i", va_arg(args, int));
-				toggle = 1;
-				break;
-
-			case 'f':
-				printf("%f", (float) va_arg(args, double));
-				toggle = 1;
-				break;
-
-			case 's':
-				str = va_arg(args, char *);
-				if (str == NULL)
-				{
-					printf("(nil)");
+			toggle = 0;
+			switch (format[i])
+			{
+				case 'c':
+					printf("%c", (char) va_arg(args, int));
 					toggle = 1;
 					break;
-				}
-				printf("%s", str);
-				break;
 
-			default:
-				break;
+				case 'i':
+					printf("%i", va_arg(args, int));
+					toggle = 1;
+					break;
+
+				case 'f':
+					printf("%f", (float) va_arg(args, double));
+					toggle = 1;
+					break;
+
+				case 's':
+					str = va_arg(args, char *);
+					toggle = 1;
+					if (str == NULL)
+					{
+						printf("(nil)");
+						break;
+					}
+					printf("%s", str);
+					break;
+
+					default:
+						break;
+			}
+			if (toggle == 1 && format[i + 1] != '\0')
+				printf(", ");
+			i++;
 		}
-		if (toggle == 1 && format[i + 1] != '\0')
-			printf(", ");
-		i++;
+			break;
 	}
 	printf("\n");
 	va_end(args);
