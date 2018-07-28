@@ -22,22 +22,22 @@ void print_all(const char * const format, ...)
 		toggle = 0;
 		switch (format[i])
 		{
-			case 'c' :
+			case 'c':
 				printf("%c", (char) va_arg(args, int));
 				toggle = 1;
 				break;
 
-			case 'i' :
+			case 'i':
 				printf("%i", va_arg(args, int));
 				toggle = 1;
 				break;
 
-			case 'f' :
+			case 'f':
 				printf("%f", (float) va_arg(args, double));
 				toggle = 1;
 				break;
 
-			case 's' :
+			case 's':
 				str = va_arg(args, char *);
 				if (str == NULL)
 				{
@@ -46,6 +46,9 @@ void print_all(const char * const format, ...)
 					break;
 				}
 				printf("%s", str);
+				break;
+
+			default:
 				break;
 		}
 		if (toggle == 1 && format[i + 1] != '\0')
