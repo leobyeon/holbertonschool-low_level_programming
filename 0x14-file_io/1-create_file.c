@@ -30,7 +30,7 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 	}
 
-	var_write = write(fd, text_content, strlen + 1);
+	var_write = write(fd, text_content, strlen);
 	if (var_write == -1)
 		return (-1);
 
