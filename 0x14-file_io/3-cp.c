@@ -51,19 +51,26 @@ int main(int argc, char *argv[])
 	while (var_read)
 	{
 		var_read = read(openfd1, buf, 1024);
-
 		if (var_read == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+			exit(98);
+		}
+
+	/* write to file_to */
+
+		var_write = write(openfd2, buf, var_read);
+		if (var_write == -1)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
+			exit(99);
+		}
+	}
 			errormsg = close(openfd1);
 			if (errormsg == -1)
 			{
 				dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", openfd1);
 				exit(100);
-			}
-			else
-			{
-				close(openfd1);
 			}
 			errormsg = close(openfd2);
 			if (errormsg == -1)
@@ -71,42 +78,5 @@ int main(int argc, char *argv[])
 				dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", openfd2);
 				exit(100);
 			}
-			else
-			{
-				close(openfd2);
-			}
-			exit(98);
-		}
-
-	/* write to file_to */
-
-			var_write = write(openfd2, buf, var_read);
-
-			if (var_write == -1)
-			{
-				dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", argv[2]);
-				errormsg = close(openfd1);
-				if (errormsg == -1)
-				{
-					dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", openfd1);
-					exit(100);
-				}
-				else
-				{
-					close(openfd1);
-				}
-				errormsg = close(openfd2);
-				if (errormsg == -1)
-				{
-					dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", openfd2);
-					exit(100);
-				}
-				else
-				{
-					close(openfd2);
-				}
-				exit(99);
-			}
-	}
 	return (0);
 }
