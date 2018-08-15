@@ -48,3 +48,31 @@ int main(int argc, char *argv[])
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 			exit(98);
 		}
+
+	/* write to file_to */
+
+		if (var_read)
+		{
+			var_write = write(openfd2, buf, var_read);
+			if (var_write != var_read)
+			{
+				dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+				exit(99);
+			}
+		}
+	} while (var_read);
+
+	errormsg = close(openfd1);
+	if (errormsg == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", openfd1);
+		exit(100);
+	}
+	errormsg = close(openfd2);
+	if (errormsg == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", openfd2);
+		exit(100);
+	}
+	return (0);
+}
