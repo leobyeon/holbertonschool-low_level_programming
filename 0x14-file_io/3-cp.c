@@ -12,7 +12,7 @@
 int main(int argc, char *argv[])
 {
 	int openfd1, openfd2, errormsg;
-	ssize_t var_write = 0, var_read = 0;
+	ssize_t var_write = 0, var_read = 1;
 	char buf[1024];
 
 	if (argc != 3)
@@ -41,7 +41,8 @@ int main(int argc, char *argv[])
 
 	/* read from file_from */
 
-	do {
+	while (var_read) 
+	{
 		var_read = read(openfd1, buf, 1024);
 		if (var_read == -1)
 		{
@@ -51,16 +52,13 @@ int main(int argc, char *argv[])
 
 	/* write to file_to */
 
-		if (var_read)
+		var_write = write(openfd2, buf, var_read);
+		if (var_write != var_read)
 		{
-			var_write = write(openfd2, buf, var_read);
-			if (var_write != var_read)
-			{
-				dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-				exit(99);
-			}
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+			exit(99);
 		}
-	} while (var_read);
+	}
 
 	errormsg = close(openfd1);
 	if (errormsg == -1)
