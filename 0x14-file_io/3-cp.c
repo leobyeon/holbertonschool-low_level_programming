@@ -11,7 +11,7 @@
   */
 int main(int argc, char *argv[])
 {
-	int openfd1, openfd2;
+	int openfd1 = 0, openfd2 = 0;
 	int var_write = 0, var_read = 0, errormsg = 0;
 	char buf[1024];
 
