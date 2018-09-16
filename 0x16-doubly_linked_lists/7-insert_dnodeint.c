@@ -17,19 +17,16 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 
 	else
 	{
+		for (idxcounter = 0; idxcounter < idx - 1; idxcounter++)
+			traverse = traverse->next;
+		if (!traverse)
+			return (NULL);
+
 		new = malloc(sizeof(dlistint_t));
 		if (!new)
 			return (NULL);
 		new->n = n;
 
-		for (idxcounter = 0; idxcounter < idx - 1; idxcounter++)
-			traverse = traverse->next;
-
-		if (!h)
-			return (NULL);
-
-		if (!traverse)
-			return (NULL);
 		new->next = traverse->next;
 		if (traverse->next)
 			(traverse->next)->prev = new;
