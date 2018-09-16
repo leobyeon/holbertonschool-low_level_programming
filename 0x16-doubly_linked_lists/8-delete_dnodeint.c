@@ -15,15 +15,17 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 
 	if (index == 0)
 		*head = traverse->next;
+	else
+	{
+		for (idxcounter = 0; idxcounter < index && traverse; idxcounter++)
+			traverse = traverse->next;
+		if (!traverse)
+			return (-1);
 
-	for (idxcounter = 0; idxcounter < index && traverse; idxcounter++)
-		traverse = traverse->next;
-	if (!traverse)
-		return (-1);
-
-	if (traverse->prev)
-		(traverse->prev)->next = traverse->next;
-	if (traverse->next)
-		(traverse->next)->prev = traverse->prev;
+		if (traverse->prev)
+			(traverse->prev)->next = traverse->next;
+		if (traverse->next)
+			(traverse->next)->prev = traverse->prev;
+	}
 	return (1);
 }
