@@ -25,6 +25,9 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		for (idxcounter = 0; idxcounter < idx - 1; idxcounter++)
 			traverse = traverse->next;
 
+		if (idxcounter != idx - 1)
+			return (NULL);
+
 		if (!traverse)
 			return (NULL);
 		new->next = traverse->next;
