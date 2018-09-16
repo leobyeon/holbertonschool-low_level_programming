@@ -28,5 +28,6 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	if (traverse->next)
 		(traverse->next)->prev = traverse->prev;
 
+	free(traverse);
 	return (1);
 }
