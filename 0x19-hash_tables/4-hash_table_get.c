@@ -16,7 +16,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	idx = key_index((const unsigned char *)key, ht->size);
 	printf("after idx is set: %lu\nkey %s\n", idx, key);
 
-	if (ht->array[idx])	
+	if (ht->array[idx])
 		trav = ht->array[idx];
 	else
 		return (NULL);
