@@ -12,24 +12,27 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 	unsigned long int idx;
 	hash_node_t *trav;
 
-	idx = key_index((const unsigned char *)key, ht->size);
-
-	if (ht->array[idx])
-		trav = ht->array[idx];
-	else
-		return (NULL);
-
-	if (strcmp(trav->key, key) == 0)
+	if (ht != NULL && key != NULL)
 	{
-		return (trav->value);
-	}
-	while (trav)
-	{
+		idx = key_index((const unsigned char *)key, ht->size);
+
+		if (ht->array[idx])
+			trav = ht->array[idx];
+		else
+			return (NULL);
+
 		if (strcmp(trav->key, key) == 0)
 		{
 			return (trav->value);
 		}
-		trav = trav->next;
+		while (trav)
+		{
+			if (strcmp(trav->key, key) == 0)
+			{
+				return (trav->value);
+			}
+			trav = trav->next;
+		}
 	}
 	return (NULL);
 }
