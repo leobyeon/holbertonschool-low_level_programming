@@ -5,6 +5,7 @@
  * This prints the entire array out.
  * @array: pointer to an array to sort
  * @size: size of the array
+ * return: void
  */
 void bubble_sort(int *array, size_t size)
 {
