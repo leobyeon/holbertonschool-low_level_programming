@@ -9,9 +9,9 @@ void insertion_sort_list(listint_t **list)
 {
 	listint_t *move, *temp, *next_move, *tprev;
 
-	move = *list;
-	if (!list || !*list || move->next == NULL || move->next->next == NULL)
+	if (!list || !*list || (*list)->next == NULL)
 		return;
+	move = *list;
 	next_move = move->next;
 	while (move)
 	{
