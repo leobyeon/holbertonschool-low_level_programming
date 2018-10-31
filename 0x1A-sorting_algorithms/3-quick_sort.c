@@ -24,7 +24,7 @@ int lomuto(int *arr, int low_idx, int hi_idx, size_t size)
 			swap = arr[i];
 			arr[i] = arr[j];
 			arr[j] = swap;
-			if (i != j && arr[i] != arr[j])
+			if (arr[i] != arr[j])
 				flag = 1;
 		}
 		if (flag)
