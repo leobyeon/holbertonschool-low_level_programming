@@ -18,15 +18,20 @@ typedef struct listint_s
 			    struct listint_s *next;
 } listint_t;
 
+/* sorting algorithms */
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
 void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
-/* quick sort helpers */
+void quick_sort_hoare(int *array, size_t size);
+/* lomuto quick sort helpers */
 void sort_helper(int *array, int front, int back, size_t size);
 int pivot_point(int *array, int front, int back, size_t size);
 void shell_sort(int *array, size_t size);
+/* hoare quick sort helpers */
+void hoare_helper_sort(int *array, int front, int back, size_t size);
+int hoare_pivot_point(int *array, int front, int back, size_t size);
 
 #endif /* SORT_H */
