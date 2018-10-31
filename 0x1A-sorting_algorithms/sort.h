@@ -27,5 +27,6 @@ void quick_sort(int *array, size_t size);
 /* quick sort helpers */
 void sort_helper(int *array, int front, int back, size_t size);
 int pivot_point(int *array, int front, int back, size_t size);
+void shell_sort(int *array, size_t size);
 
 #endif /* SORT_H */
