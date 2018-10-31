@@ -1,5 +1,11 @@
 #include "sort.h"
 
+/**
+ * shell_sort - sorts using shell sort (Knuth sequence)
+ * @array: given array
+ * @size: length of array
+ * Return: void
+ */
 void shell_sort(int *array, size_t size)
 {
 	size_t gap = 1, i = 0, j = 0;
