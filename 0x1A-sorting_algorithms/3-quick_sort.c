@@ -1,79 +1,72 @@
 #include "sort.h"
 
 /**
- * lomuto - returns the pivot after sorting in lomuto method
- * @arr: given array
- * @low_idx: starting index
- * @hi_idx: ending index
- * @size: length of the array
- * Return: the pivot index
- */
-int lomuto(int *arr, int low_idx, int hi_idx, size_t size)
-{
-	int pivot = arr[hi_idx];
-	int i = (low_idx - 1);
-	int j = low_idx;
-	int swap, flag = 0;
-
-	while (j < hi_idx)
-	{
-		flag = 0;
-		if (arr[j] < pivot)
-		{
-			i++;
-			swap = arr[i];
-			arr[i] = arr[j];
-			arr[j] = swap;
-			if (arr[i] != arr[j])
-				flag = 1;
-		}
-		if (flag)
-			print_array(arr, size);
-		j++;
-	}
-
-	if (!flag)
-	{
-		swap = arr[i + 1];
-		arr[i + 1] = arr[hi_idx];
-		arr[hi_idx] = swap;
-		if (arr[i] != arr[j])
-			print_array(arr, size);
-	}
-	return (i + 1);
-}
-
-/**
- * sort_helper - gets the lomudo index (pivot index)
- * using recursion
- * @array: given array
- * @low_idx: lowest index
- * @hi_idx: highest index
- * @size: length of array
- * Return: void
- */
-void sort_helper(int *array, int low_idx, int hi_idx, size_t size)
-{
-	int l_idx = 0;
-
-	if (low_idx < hi_idx)
-	{
-		l_idx = lomuto(array, low_idx, hi_idx, size);
-
-		sort_helper(array, low_idx, l_idx - 1, size);
-		sort_helper(array, l_idx + 1, hi_idx, size);
-	}
-}
-
-/**
- * quick_sort - sorts given array using quick sort method
- * (Lomuto variation)
- * @array: given array
- * @size: length of array
- * Return: void
+ * quick_sort - sort array in ascending ording using quick sort
+ * @array: array to sort
+ * @size: size of the array
  */
 void quick_sort(int *array, size_t size)
 {
-	if (size > 2)
-		sort_helper(array, 0, size - 1, size);
+	sort_helper(array, 0, size - 1, size);
+}
+
+/**
+ * sort_helper - recursive function to sort array. Call pivot function to
+ * find new pivot point
+ * @array: array to sort
+ * @front: beginning index of section to sort
+ * @back: end index of section to sort
+ * @size: size of array
+ */
+void sort_helper(int *array, int front, int back, size_t size)
+{
+	int pivot;
+
+	if (size < 2)
+		return;
+	if (front < back)
+	{
+		pivot = pivot_point(array, front, back, size);
+		sort_helper(array, front, pivot - 1, size);
+		sort_helper(array, pivot + 1, back, size);
+	}
+}
+
+/**
+ * pivot_point - function to sort and return pivot point of array
+ * @array: array to sort
+ * @front: start index of section to sort
+ * @back: end index of section to sort
+ * @size: size of array
+ * Return: pivot point
+ */
+int pivot_point(int *array, int front, int back, size_t size)
+{
+	int pivot = back, i = front, j = front, swap, flag = 0, swapped = 0;
+
+	while (j < pivot)
+	{
+		swapped = 0;
+		if (array[j] < array[pivot])
+		{
+			if (array[j] != array[i])
+				swapped = 1;
+			swap = array[j];
+			array[j] = array[i];
+			array[i] = swap;
+			i++;
+		}
+		if (swapped == 1)
+			print_array(array, size);
+		j++;
+	}
+	if (flag == 0)
+	{
+		swap = array[j];
+		array[j] = array[i];
+		array[i] = swap;
+		if (array[i] != array[j])
+			print_array(array, size);
+	}
+	return (i);
 }
