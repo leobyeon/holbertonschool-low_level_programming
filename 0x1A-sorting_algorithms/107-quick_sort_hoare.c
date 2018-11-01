@@ -8,6 +8,8 @@
  */
 void quick_sort_hoare(int *array, size_t size)
 {
+	if (array == NULL || size < 2)
+		return;
 	hoare_helper_sort(array, 0, size - 1, size);
 }
 
@@ -23,19 +25,16 @@ void hoare_helper_sort(int *array, int front, int back, size_t size)
 {
 	int pivot;
 
-	if (size < 2)
-		return;
-
 	if (front < back)
 	{
 		pivot = hoare_pivot_point(array, front, back, size);
-		hoare_helper_sort(array, front, pivot - 1, size);
-		hoare_helper_sort(array, pivot, back, size);
+		hoare_helper_sort(array, front, pivot, size);
+		hoare_helper_sort(array, pivot + 1, back, size);
 	}
 }
 
 /**
- * hoare_pivot_point - sort array, find and retur pivot point.
+ * hoare_pivot_point - sort array, find and return pivot point.
  * @array: array to sort
  * @front: start index
  * @back: end index
@@ -44,21 +43,30 @@ void hoare_helper_sort(int *array, int front, int back, size_t size)
  */
 int hoare_pivot_point(int *array, int front, int back, size_t size)
 {
-	int i = front, j = back, swap, pivot = array[back];
+	int i = front - 1, j = back + 1, swap, pivot = array[back];
 
 	while (1)
 	{
-		if (i >= j)
-			return (j);
-		while (array[i] < pivot)
+		do {
 			i++;
-		while (array[j] > pivot)
+		} while (array[i] < pivot);
+
+		do {
 			j--;
-		swap = array[i];
-		array[i] = array[j];
-		array[j] = swap;
-		if (array[i] != array[j])
+		} while (array[j] > pivot);
+
+		if (i < j)
+		{
+			swap = array[i];
+			array[i] = array[j];
+			array[j] = swap;
 			print_array(array, size);
+		}
+		else
+		{
+			if (i == j)
+				return (j - 1);
+			return (j);
+		}
 	}
-	return (j);
 }
