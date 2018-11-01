@@ -54,14 +54,11 @@ int hoare_pivot_point(int *array, int front, int back, size_t size)
 			i++;
 		while (array[j] > pivot)
 			j--;
-		if (flag == 0)
-		{
-			swap = array[i];
-			array[i] = array[j];
-			array[j] = swap;
-			if (array[i] != array[j])
-				print_array(array, size);
-		}
+		swap = array[i];
+		array[i] = array[j];
+		array[j] = swap;
+		if (array[i] != array[j])
+			print_array(array, size);
 	}
 	return (j);
 }
